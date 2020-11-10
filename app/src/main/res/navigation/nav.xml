@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/languageSelect">
+
+    <fragment
+        android:id="@+id/languageSelect"
+        android:name="com.toduko.ltc.LanguageSelect"
+        android:label="fragment_language_select"
+        tools:layout="@layout/fragment_language_select" >
+        <action
+            android:id="@+id/action_languageSelect_to_javaScriptDifficultySelect"
+            app:destination="@id/javascriptDifficultySelect" />
+        <action
+            android:id="@+id/action_languageSelect_to_pythonDifficultySelect"
+            app:destination="@id/pythonDifficultySelect" />
+    </fragment>
+    <fragment
+        android:id="@+id/javascriptDifficultySelect"
+        android:name="com.toduko.ltc.JavaScriptDifficultySelect"
+        android:label="fragment_javascript_difficulty_select"
+        tools:layout="@layout/fragment_javascript_difficulty_select" />
+    <fragment
+        android:id="@+id/pythonDifficultySelect"
+        android:name="com.toduko.ltc.PythonDifficultySelect"
+        android:label="fragment_python_difficulty_select"
+        tools:layout="@layout/fragment_python_difficulty_select" />
+</navigation>
