@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.toduko.ltc.databinding.FragmentLanguageSelectBinding
 
 class LanguageSelect : Fragment() {
@@ -16,7 +13,7 @@ class LanguageSelect : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentLanguageSelectBinding.inflate(inflater, container, false)
         binding.javascriptButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_languageSelect_to_javaScriptDifficultySelect)
+            it.findNavController().navigate(R.id.action_languageSelect_to_javascriptDifficultySelect)
         }
         binding.pythonButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_languageSelect_to_pythonDifficultySelect)

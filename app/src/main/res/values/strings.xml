@@ -16,4 +16,5 @@
     <string name="javascript_difficulty_select">JavaScript Difficulty Select</string>
     <string name="select_a_language">Select a language</string>
     <string name="python_difficulty_select">Python Difficulty Select</string>
+    <string name="javascript_beginner_lessons">JavaScript Beginner Lessons</string>
 </resources>
