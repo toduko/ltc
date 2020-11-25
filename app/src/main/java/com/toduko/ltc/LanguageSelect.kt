@@ -19,6 +19,9 @@ class LanguageSelect : Fragment() {
         binding.pythonButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_languageSelect_to_difficultySelect, bundleOf("language" to "Python"))
         }
+        binding.button.setOnClickListener {
+            it.findNavController().navigate(R.id.action_languageSelect_to_questionMultipleChoice)
+        }
         return binding.root
     }
 
