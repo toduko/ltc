@@ -1,4 +1,4 @@
-package com.toduko.ltc
+package com.toduko.ltc.menus
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentDifficultySelectBinding
 
 

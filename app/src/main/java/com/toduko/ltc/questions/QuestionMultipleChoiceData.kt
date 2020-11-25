@@ -1,4 +1,4 @@
-package com.toduko.ltc
+package com.toduko.ltc.questions
 
 data class QuestionMultipleChoiceData(
     val title: String,

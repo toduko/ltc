@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/languageSelect"
-        android:name="com.toduko.ltc.LanguageSelect"
+        android:name="com.toduko.ltc.menus.LanguageSelect"
         android:label="fragment_language_select"
         tools:layout="@layout/fragment_language_select" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/difficultySelect"
-        android:name="com.toduko.ltc.DifficultySelect"
+        android:name="com.toduko.ltc.menus.DifficultySelect"
         android:label="fragment_difficulty_select"
         tools:layout="@layout/fragment_difficulty_select" >
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/lessonList"
-        android:name="com.toduko.ltc.LessonList"
+        android:name="com.toduko.ltc.menus.LessonList"
         android:label="fragment_lesson_list"
         tools:layout="@layout/fragment_lesson_list" />
     <fragment
         android:id="@+id/questionMultipleChoice"
-        android:name="com.toduko.ltc.QuestionMultipleChoice"
+        android:name="com.toduko.ltc.questions.QuestionMultipleChoice"
         android:label="fragment_question_multiple_choice"
         tools:layout="@layout/fragment_question_multiple_choice" />
 
