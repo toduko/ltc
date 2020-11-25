@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_languageSelect_to_pythonDifficultySelect"
             app:destination="@id/pythonDifficultySelect" />
+        <action
+            android:id="@+id/action_languageSelect_to_questionMultipleChoice"
+            app:destination="@id/questionMultipleChoice" />
     </fragment>
     <fragment
         android:id="@+id/javascriptDifficultySelect"
@@ -36,4 +39,9 @@
         android:name="com.toduko.ltc.JavaScriptBeginnerList"
         android:label="fragment_javascript_beginner_list"
         tools:layout="@layout/fragment_javascript_beginner_list" />
+    <fragment
+        android:id="@+id/questionMultipleChoice"
+        android:name="com.toduko.ltc.QuestionMultipleChoice"
+        android:label="fragment_question_multiple_choice"
+        tools:layout="@layout/fragment_question_multiple_choice" />
 </navigation>
