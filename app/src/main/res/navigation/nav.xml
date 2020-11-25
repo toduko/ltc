@@ -11,29 +11,21 @@
         android:label="fragment_language_select"
         tools:layout="@layout/fragment_language_select" >
         <action
-            android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
-            app:destination="@id/javascriptDifficultySelect" />
-        <action
-            android:id="@+id/action_languageSelect_to_pythonDifficultySelect"
-            app:destination="@id/pythonDifficultySelect" />
+            android:id="@+id/action_languageSelect_to_difficultySelect"
+            app:destination="@id/difficultySelect" />
     </fragment>
     <fragment
-        android:id="@+id/javascriptDifficultySelect"
-        android:name="com.toduko.ltc.JavaScriptDifficultySelect"
-        android:label="fragment_javascript_difficulty_select"
-        tools:layout="@layout/fragment_javascript_difficulty_select" >
+        android:id="@+id/difficultySelect"
+        android:name="com.toduko.ltc.DifficultySelect"
+        android:label="fragment_difficulty_select"
+        tools:layout="@layout/fragment_difficulty_select" >
         <action
-            android:id="@+id/action_javascriptDifficultySelect_to_javascriptBeginnerList"
-            app:destination="@id/javascriptBeginnerList" />
+            android:id="@+id/action_difficultySelect_to_lessonList"
+            app:destination="@id/lessonList" />
     </fragment>
     <fragment
-        android:id="@+id/pythonDifficultySelect"
-        android:name="com.toduko.ltc.PythonDifficultySelect"
-        android:label="fragment_python_difficulty_select"
-        tools:layout="@layout/fragment_python_difficulty_select" />
-    <fragment
-        android:id="@+id/javascriptBeginnerList"
-        android:name="com.toduko.ltc.JavaScriptBeginnerList"
-        android:label="fragment_javascript_beginner_list"
-        tools:layout="@layout/fragment_javascript_beginner_list" />
+        android:id="@+id/lessonList"
+        android:name="com.toduko.ltc.LessonList"
+        android:label="fragment_lesson_list"
+        tools:layout="@layout/fragment_lesson_list" />
 </navigation>
