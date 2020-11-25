@@ -12,9 +12,10 @@
         tools:layout="@layout/fragment_language_select" >
         <action
             android:id="@+id/action_languageSelect_to_difficultySelect"
-            app:destination="@id/difficultySelect" />
-            android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
+            app:destination="@id/difficultySelect" /><![CDATA[
+        android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
             app:destination="@id/javascriptDifficultySelect" />
+    ]]>
     </fragment>
     <fragment
         android:id="@+id/difficultySelect"
@@ -30,5 +31,10 @@
         android:name="com.toduko.ltc.LessonList"
         android:label="fragment_lesson_list"
         tools:layout="@layout/fragment_lesson_list" />
+    <fragment
+        android:id="@+id/questionMultipleChoice"
+        android:name="com.toduko.ltc.QuestionMultipleChoice"
+        android:label="fragment_question_multiple_choice"
+        tools:layout="@layout/fragment_question_multiple_choice" />
 
 </navigation>
