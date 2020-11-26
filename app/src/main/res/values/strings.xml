@@ -17,4 +17,17 @@
     <string name="select_a_language">Select a language</string>
     <string name="python_difficulty_select">Python Difficulty Select</string>
     <string name="javascript_beginner_lessons">JavaScript Beginner Lessons</string>
+    <string name="choice_1">Choice 1</string>
+    <string name="choice_2">Choice 2</string>
+    <string name="choice_3">Choice 3</string>
+    <string name="check_answer">Check Answer</string>
+    <string name="question">Question</string>
+    <string name="choice_4">Choice 4</string>
+    <string name="next">Next</string>
+    <string name="button">Button</string>
+    <string name="missing_word">Missing word</string>
+    <string name="text">Text</string>
+    <string name="fill_the_missing_word">Fill The Missing Word</string>
+    <string name="google_logo">Google Logo</string>
+    <string name="login_with_google">Login with Google</string>
 </resources>

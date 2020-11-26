@@ -12,7 +12,13 @@
         tools:layout="@layout/fragment_language_select" >
         <action
             android:id="@+id/action_languageSelect_to_difficultySelect"
-            app:destination="@id/difficultySelect" /><![CDATA[
+            app:destination="@id/difficultySelect" />
+        <action
+            android:id="@+id/action_languageSelect_to_questionMultipleChoice"
+            app:destination="@id/questionMultipleChoice" />
+        <action
+            android:id="@+id/action_languageSelect_to_questionFillTheBlank"
+            app:destination="@id/questionFillTheBlank" /><![CDATA[
         android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
             app:destination="@id/javascriptDifficultySelect" />
     ]]>
@@ -36,5 +42,10 @@
         android:name="com.toduko.ltc.questions.QuestionMultipleChoice"
         android:label="fragment_question_multiple_choice"
         tools:layout="@layout/fragment_question_multiple_choice" />
+    <fragment
+        android:id="@+id/questionFillTheBlank"
+        android:name="com.toduko.ltc.questions.QuestionFillTheBlank"
+        android:label="fragment_question_fill_the_blank"
+        tools:layout="@layout/fragment_question_fill_the_blank" />
 
 </navigation>

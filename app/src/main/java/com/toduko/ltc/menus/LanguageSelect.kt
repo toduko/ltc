@@ -20,6 +20,19 @@ class LanguageSelect : Fragment() {
         binding.pythonButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_languageSelect_to_difficultySelect, bundleOf("language" to "Python"))
         }
+
+        // TODO: the code below should be navigated from a lesson
+        binding.multipleChoiceButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_languageSelect_to_questionMultipleChoice)
+        }
+        binding.fillTheBlankButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_languageSelect_to_questionFillTheBlank)
+        }
+
+        binding.loginWithGoogle.setOnClickListener {
+            // TODO: sign in with Google using Firebase
+        }
+
         return binding.root
     }
 
