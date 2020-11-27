@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "240938370788",
+    "firebase_url": "https://learn-to-code-6559f.firebaseio.com",
+    "project_id": "learn-to-code-6559f",
+    "storage_bucket": "learn-to-code-6559f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240938370788:android:732e24580e986eaf900ef1",
+        "android_client_info": {
+          "package_name": "com.toduko.ltc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240938370788-la5fesaf6uifcejmul5bcgigdf9up145.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKoHedqVbv4VkbtGrgTYsgJwkzczJm3fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240938370788-la5fesaf6uifcejmul5bcgigdf9up145.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
