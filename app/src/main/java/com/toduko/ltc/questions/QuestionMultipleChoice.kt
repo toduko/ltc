@@ -1,6 +1,7 @@
 package com.toduko.ltc.questions
 
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,17 +28,29 @@ class QuestionMultipleChoice : Fragment() {
         binding.questionTitle.text = question.title
 
         binding.checkAnswerButton.setOnClickListener {
-            val checkButton =
+            val borderRadius = 12
+            val borderWidth = 4
+
+            val redBorder = GradientDrawable()
+            redBorder.cornerRadius = borderRadius.toFloat()
+            redBorder.setStroke(borderWidth, Color.RED)
+
+            val greenBorder = GradientDrawable()
+            greenBorder.cornerRadius = borderRadius.toFloat()
+            greenBorder.setStroke(borderWidth, Color.GREEN)
+
+            val checkedAnswer =
                 binding.root.findViewById<RadioButton>(binding.questions.checkedRadioButtonId)
             if (binding.questions.checkedRadioButtonId != -1) {
-                val answeredCorrectly = checkButton.text.toString() == question.correctAnswer
-                if (!answeredCorrectly) checkButton.setBackgroundColor(Color.RED)
+                val answeredCorrectly = checkedAnswer.text.toString() == question.correctAnswer
+                if (!answeredCorrectly)
+                    checkedAnswer.background = redBorder
             }
             when (question.correctAnswer) {
-                question.answer1 -> binding.choice1.setBackgroundColor(Color.GREEN)
-                question.answer2 -> binding.choice2.setBackgroundColor(Color.GREEN)
-                question.answer3 -> binding.choice3.setBackgroundColor(Color.GREEN)
-                question.answer4 -> binding.choice4.setBackgroundColor(Color.GREEN)
+                question.answer1 -> binding.choice1.background = greenBorder
+                question.answer2 -> binding.choice2.background = greenBorder
+                question.answer3 -> binding.choice3.background = greenBorder
+                question.answer4 -> binding.choice4.background = greenBorder
             }
 
             binding.checkAnswerButton.visibility = View.GONE
