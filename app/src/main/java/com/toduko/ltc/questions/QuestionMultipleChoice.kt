@@ -8,7 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
+import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentQuestionMultipleChoiceBinding
+import com.toduko.ltc.lessons.LessonData
 
 class QuestionMultipleChoice : Fragment() {
     override fun onCreateView(
@@ -17,17 +21,26 @@ class QuestionMultipleChoice : Fragment() {
     ): View? {
         val binding = FragmentQuestionMultipleChoiceBinding.inflate(inflater, container, false)
 
-        // TODO: get questions depending on the lessons
-        val question = QuestionMultipleChoiceData(
-            "2+2", "1", "2", "3", "4", "4"
+        val lang = arguments?.getString("language").toString()
+        val diff = arguments?.getString("difficulty").toString()
+        val lessonNumber = arguments?.getString("lessonNumber").toString()
+
+        val question = LessonData.getLessonMultipleChoiceQuestion(
+            binding.root.context,
+            lang,
+            diff,
+            lessonNumber
         )
         binding.choice1.text = question.answer1
         binding.choice2.text = question.answer2
         binding.choice3.text = question.answer3
-        binding.choice4.text = question.answer4
         binding.questionTitle.text = question.title
 
         binding.checkAnswerButton.setOnClickListener {
+            binding.choice1.isEnabled = false
+            binding.choice2.isEnabled = false
+            binding.choice3.isEnabled = false
+
             val borderRadius = 12
             val borderWidth = 4
 
@@ -50,7 +63,6 @@ class QuestionMultipleChoice : Fragment() {
                 question.answer1 -> binding.choice1.background = greenBorder
                 question.answer2 -> binding.choice2.background = greenBorder
                 question.answer3 -> binding.choice3.background = greenBorder
-                question.answer4 -> binding.choice4.background = greenBorder
             }
 
             binding.checkAnswerButton.visibility = View.GONE
@@ -58,7 +70,10 @@ class QuestionMultipleChoice : Fragment() {
         }
 
         binding.nextButton.setOnClickListener {
-            // TODO: navigate to next question or lesson
+            it.findNavController().navigate(
+                R.id.action_questionMultipleChoice_to_questionFillTheBlank,
+                bundleOf("language" to lang, "difficulty" to diff, "lessonNumber" to lessonNumber)
+            )
         }
 
         return binding.root

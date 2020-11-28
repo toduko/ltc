@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="javascript_beginner_lessons">
+        <item>@string/javascript_hello_world</item>
+        <item>@string/javascript_variables</item>
+        <item>@string/javascript_conditionals</item>
+        <item>@string/javascript_loops</item>
+        <item>@string/javascript_functions</item>
+        <item>@string/javascript_data_structures</item>
+        <item>@string/javascript_useful_functions</item>
+    </string-array>
+    <string-array name="javascript_advanced_lessons">
+        <item>@string/javascript_scope</item>
+        <item>@string/javascript_var_let_const</item>
+        <item>@string/javascript_arrow_functions</item>
+        <item>@string/javascript_objects</item>
+        <item>@string/javascript_oop</item>
+        <item>@string/javascript_this_keyword</item>
+        <item>@string/javascript_try_catch</item>
+        <item>@string/javascript_promises</item>
+    </string-array>
+    <string-array name="python_beginner_lessons">
+        <item>@string/python_hello_world</item>
+        <item>@string/python_variables</item>
+        <item>@string/python_conditionals</item>
+        <item>@string/python_loops</item>
+        <item>@string/python_functions</item>
+        <item>@string/python_data_structures</item>
+        <item>@string/python_comprehension</item>
+    </string-array>
+    <string-array name="python_advanced_lessons">
+        <item>@string/python_lambdas_and_generators</item>
+        <item>@string/python_classes_and_inheritance</item>
+        <item>@string/python_packaging</item>
+    </string-array>
+</resources>

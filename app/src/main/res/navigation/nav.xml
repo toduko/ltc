@@ -12,15 +12,11 @@
         tools:layout="@layout/fragment_language_select" >
         <action
             android:id="@+id/action_languageSelect_to_difficultySelect"
-            app:destination="@id/difficultySelect" />
-        <action
-            android:id="@+id/action_languageSelect_to_questionMultipleChoice"
-            app:destination="@id/questionMultipleChoice" />
-        <action
-            android:id="@+id/action_languageSelect_to_questionFillTheBlank"
-            app:destination="@id/questionFillTheBlank" /><![CDATA[
+            app:destination="@id/difficultySelect" /><![CDATA[
+
         android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
             app:destination="@id/javascriptDifficultySelect" />
+
     ]]>
     </fragment>
     <fragment
@@ -36,16 +32,34 @@
         android:id="@+id/lessonList"
         android:name="com.toduko.ltc.menus.LessonList"
         android:label="fragment_lesson_list"
-        tools:layout="@layout/fragment_lesson_list" />
+        tools:layout="@layout/fragment_lesson_list" >
+        <action
+            android:id="@+id/action_lessonList_to_lesson"
+            app:destination="@id/lesson" />
+    </fragment>
     <fragment
         android:id="@+id/questionMultipleChoice"
         android:name="com.toduko.ltc.questions.QuestionMultipleChoice"
         android:label="fragment_question_multiple_choice"
-        tools:layout="@layout/fragment_question_multiple_choice" />
+        tools:layout="@layout/fragment_question_multiple_choice" >
+        <action
+            android:id="@+id/action_questionMultipleChoice_to_questionFillTheBlank"
+            app:destination="@id/questionFillTheBlank"
+            app:popUpTo="@id/lessonList" />
+    </fragment>
     <fragment
         android:id="@+id/questionFillTheBlank"
         android:name="com.toduko.ltc.questions.QuestionFillTheBlank"
         android:label="fragment_question_fill_the_blank"
         tools:layout="@layout/fragment_question_fill_the_blank" />
+    <fragment
+        android:id="@+id/lesson"
+        android:name="com.toduko.ltc.lessons.Lesson"
+        android:label="fragment_lesson"
+        tools:layout="@layout/fragment_lesson" >
+        <action
+            android:id="@+id/action_lesson_to_questionMultipleChoice"
+            app:destination="@id/questionMultipleChoice" />
+    </fragment>
 
 </navigation>

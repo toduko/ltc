@@ -21,10 +21,10 @@ class DifficultySelect : Fragment() {
         val lang = arguments?.getString("language")
         binding.languageSelectText.text = lang.plus(" Difficulty Select")
         binding.beginnerButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_difficultySelect_to_lessonList, bundleOf("language" to lang, "difficulty" to "beginner"))
+            it.findNavController().navigate(R.id.action_difficultySelect_to_lessonList, bundleOf("language" to lang, "difficulty" to "Beginner"))
         }
         binding.advancedButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_difficultySelect_to_lessonList, bundleOf("language" to lang, "difficulty" to "advanced"))
+            it.findNavController().navigate(R.id.action_difficultySelect_to_lessonList, bundleOf("language" to lang, "difficulty" to "Advanced"))
         }
         return binding.root
     }

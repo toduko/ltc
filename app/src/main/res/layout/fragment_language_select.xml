@@ -45,26 +45,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/multiple_choice_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Multiple Choice"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fill_the_blank_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/fill_the_blank_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fill the blank"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/multiple_choice_button" />
-
-        <Button
             android:id="@+id/login_with_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
