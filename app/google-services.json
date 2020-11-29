@@ -8,21 +8,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240938370788:android:732e24580e986eaf900ef1",
+        "mobilesdk_app_id": "1:240938370788:android:9730e3ddc6769c47900ef1",
         "android_client_info": {
           "package_name": "com.toduko.ltc"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "240938370788-hs7g5jvs2b6u3ftfl5m646b7vsdc4irh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.toduko.ltc",
-            "certificate_hash": "bd15720d9471a1a5729dbe985822dfc7c0814fe0"
-          }
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyBKoHedqVbv4VkbtGrgTYsgJwkzczJm3fk"
