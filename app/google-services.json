@@ -15,8 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "240938370788-la5fesaf6uifcejmul5bcgigdf9up145.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "240938370788-hs7g5jvs2b6u3ftfl5m646b7vsdc4irh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.toduko.ltc",
+            "certificate_hash": "bd15720d9471a1a5729dbe985822dfc7c0814fe0"
+          }
         }
       ],
       "api_key": [
@@ -26,12 +30,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "240938370788-la5fesaf6uifcejmul5bcgigdf9up145.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

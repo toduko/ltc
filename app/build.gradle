@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        android {
+            storeFile file('C:\\Users\\Owner\\StudioProjects\\ltc\\app\\src\\keystore.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -14,6 +22,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        signingConfig signingConfigs.android
 
     }
 
@@ -51,5 +60,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
 
 }

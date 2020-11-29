@@ -1,6 +1,5 @@
 package com.toduko.ltc.menus
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +15,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentLanguageSelectBinding
 
@@ -46,7 +47,7 @@ class LanguageSelect : Fragment() {
                 .requestEmail()
                 .build()
             googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
-            mAuth = FirebaseAuth.getInstance()
+            mAuth = Firebase.auth
 
             signIn()
 
@@ -64,6 +65,7 @@ class LanguageSelect : Fragment() {
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            Log.i("task", task.exception.toString())
             val exception = task.exception
             if(task.isSuccessful) {
                 try {
