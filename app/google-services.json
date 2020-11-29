@@ -1,27 +1,37 @@
 {
   "project_info": {
-    "project_number": "240938370788",
-    "firebase_url": "https://learn-to-code-6559f.firebaseio.com",
-    "project_id": "learn-to-code-6559f",
-    "storage_bucket": "learn-to-code-6559f.appspot.com"
+    "project_number": "792901633540",
+    "firebase_url": "https://learn-to-code-56436.firebaseio.com",
+    "project_id": "learn-to-code-56436",
+    "storage_bucket": "learn-to-code-56436.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:240938370788:android:9730e3ddc6769c47900ef1",
+        "mobilesdk_app_id": "1:792901633540:android:98dfb9edec09dea87ed751",
         "android_client_info": {
           "package_name": "com.toduko.ltc"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "792901633540-b7ic2llcjvkno55fmbfuip4no992r51i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBKoHedqVbv4VkbtGrgTYsgJwkzczJm3fk"
+          "current_key": "AIzaSyCM9R_GBCL1-HNktgcgxusuJmxlSLG-3mY"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792901633540-b7ic2llcjvkno55fmbfuip4no992r51i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

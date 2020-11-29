@@ -22,9 +22,9 @@
     <string name="text">Text</string>
     <string name="fill_the_missing_word">Fill The Missing Word</string>
     <string name="google_logo">Google Logo</string>
-    <string name="login_with_google">Login with Google</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_your_knowledge">Test Your Knowledge</string>
     <string name="done">Done</string>
+    <string name="sign_in">Sign In</string>
 </resources>

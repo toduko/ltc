@@ -12,12 +12,10 @@
         tools:layout="@layout/fragment_language_select" >
         <action
             android:id="@+id/action_languageSelect_to_difficultySelect"
-            app:destination="@id/difficultySelect" /><![CDATA[
-
-        android:id="@+id/action_languageSelect_to_javascriptDifficultySelect"
-            app:destination="@id/javascriptDifficultySelect" />
-
-    ]]>
+            app:destination="@id/difficultySelect" />
+        <action
+            android:id="@+id/action_languageSelect_to_signin"
+            app:destination="@id/signin" />
     </fragment>
     <fragment
         android:id="@+id/difficultySelect"
@@ -61,5 +59,9 @@
             android:id="@+id/action_lesson_to_questionMultipleChoice"
             app:destination="@id/questionMultipleChoice" />
     </fragment>
+    <fragment
+        android:id="@+id/signin"
+        android:name="com.toduko.ltc.authentication.Signin"
+        android:label="Signin" />
 
 </navigation>
