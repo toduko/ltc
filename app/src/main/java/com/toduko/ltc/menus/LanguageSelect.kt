@@ -24,7 +24,6 @@ import com.toduko.ltc.databinding.FragmentLanguageSelectBinding
 class LanguageSelect : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    private lateinit var user: FirebaseUser
     private var RC_SIGN_IN = 9001
     private lateinit var binding: FragmentLanguageSelectBinding
 
@@ -42,7 +41,7 @@ class LanguageSelect : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
         auth = Firebase.auth
 
-        user = auth.currentUser!!
+        val user = auth.currentUser
         updateUI(user)
 
         binding.javascriptButton.setOnClickListener {
@@ -94,7 +93,7 @@ class LanguageSelect : Fragment() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("firebaseAuthWithGoogle", "signInWithCredential:success")
-                    user = auth.currentUser!!
+                    val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
