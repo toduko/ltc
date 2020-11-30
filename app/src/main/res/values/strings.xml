@@ -28,4 +28,6 @@
     <string name="done">Done</string>
     <string name="sign_in">Sign In With Google</string>
     <string name="choose_a_correct_answer">Choose A Correct Answer</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="todo">TODO</string>
 </resources>
