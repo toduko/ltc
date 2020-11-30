@@ -1,7 +1,6 @@
 package com.toduko.ltc.lessons
 
 import android.os.Bundle
-import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
