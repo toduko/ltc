@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_languageSelect_to_difficultySelect"
             app:destination="@id/difficultySelect" />
-        <action
-            android:id="@+id/action_languageSelect_to_signin"
-            app:destination="@id/signin" />
     </fragment>
     <fragment
         android:id="@+id/difficultySelect"
@@ -28,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/lessonList"
-        android:name="com.toduko.ltc.menus.LessonList"
+        android:name="com.toduko.ltc.lessons.LessonList"
         android:label="fragment_lesson_list"
         tools:layout="@layout/fragment_lesson_list" >
         <action
@@ -59,9 +56,5 @@
             android:id="@+id/action_lesson_to_questionMultipleChoice"
             app:destination="@id/questionMultipleChoice" />
     </fragment>
-    <fragment
-        android:id="@+id/signin"
-        android:name="com.toduko.ltc.authentication.Signin"
-        android:label="Signin" />
 
 </navigation>

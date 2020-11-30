@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "792901633540-6hpamjc64eer1otfia7c7vaulveijt93.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.toduko.ltc",
+            "certificate_hash": "b53f0e8020367be2d158525c489e213cf80f8f2b"
+          }
+        },
+        {
           "client_id": "792901633540-b7ic2llcjvkno55fmbfuip4no992r51i.apps.googleusercontent.com",
           "client_type": 3
         }

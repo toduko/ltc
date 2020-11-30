@@ -8,9 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.toduko.ltc.R
+import com.google.firebase.firestore.FirebaseFirestore
 import com.toduko.ltc.databinding.FragmentQuestionFillTheBlankBinding
-import com.toduko.ltc.lessons.LessonData
 
 class QuestionFillTheBlank : Fragment() {
     override fun onCreateView(
@@ -21,28 +20,42 @@ class QuestionFillTheBlank : Fragment() {
 
         val lang = arguments?.getString("language").toString()
         val diff = arguments?.getString("difficulty").toString()
-        val lessonNumber = arguments?.getString("lessonNumber").toString()
+        val lessonNumber = arguments?.getString("lessonNumber")?.toInt()
 
-        val question = LessonData.getLessonFillTheBlankQuestion(binding.root.context, lang, diff, lessonNumber)
-        binding.fillTheBlankText.text = question.text
+        val db = FirebaseFirestore.getInstance()
+        db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
+            val lessons =
+                documentSnapshot.data?.get(diff) as List<HashMap<String, HashMap<String, String>>>
+            val lesson = lessons[lessonNumber!! - 1]
 
-        binding.checkAnswer.setOnClickListener {
-            binding.missingWord.isEnabled = false
-            val answeredCorrectly = binding.missingWord.text.toString() == question.missingWord
-            binding.checkAnswer.visibility = View.GONE
-            binding.doneButton.visibility = View.VISIBLE
-            if (answeredCorrectly) {
-                binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
-                binding.status.text = "Correct"
+            binding.fillTheBlankText.text = lesson["questionFillTheBlank"]?.get("text").toString()
+            val missingWord = lesson["questionFillTheBlank"]?.get("missingWord").toString()
+
+            binding.checkAnswer.setOnClickListener {
+                binding.missingWord.isEnabled = false
+                val answeredCorrectly = binding.missingWord.text.toString() == missingWord
+                binding.checkAnswer.visibility = View.GONE
+                binding.doneButton.visibility = View.VISIBLE
+                binding.status.visibility = View.VISIBLE
+                if (answeredCorrectly) {
+                    binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
+                    binding.status.text = "Correct"
+                } else {
+                    binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.RED)
+                    binding.status.text =
+                        "Incorrect (Correct answer: ".plus(missingWord).plus(")")
+                }
             }
-            else {
-                binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.RED)
-                binding.status.text = "Incorrect (Correct answer: ".plus(question.missingWord).plus(")")
-            }
-        }
 
-        binding.doneButton.setOnClickListener {
-            it.findNavController().popBackStack()
+            binding.doneButton.setOnClickListener {
+                it.findNavController().popBackStack()
+            }
+
+            binding.fillTheBlank.visibility = View.VISIBLE
+            binding.fillTheBlankText.visibility = View.VISIBLE
+            binding.missingWord.visibility = View.VISIBLE
+            binding.checkAnswer.visibility = View.VISIBLE
+            binding.progressBar4.visibility = View.GONE
         }
 
         return binding.root

@@ -26,5 +26,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_your_knowledge">Test Your Knowledge</string>
     <string name="done">Done</string>
-    <string name="sign_in">Sign In</string>
+    <string name="sign_in">Sign In With Google</string>
+    <string name="choose_a_correct_answer">Choose A Correct Answer</string>
 </resources>
