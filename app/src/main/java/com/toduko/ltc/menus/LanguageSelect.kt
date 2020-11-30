@@ -60,6 +60,10 @@ class LanguageSelect : Fragment() {
         binding.signinButton.setOnClickListener {
             signIn()
         }
+        binding.signoutButton.setOnClickListener {
+            Firebase.auth.signOut()
+            updateUI(user)
+        }
         return binding.root
     }
 
@@ -108,9 +112,11 @@ class LanguageSelect : Fragment() {
             binding.welcomeMessage.text = "Welcome ".plus(user.displayName)
             binding.welcomeMessage.visibility = View.VISIBLE
             binding.signinButton.visibility = View.GONE
+            binding.signoutButton.visibility = View.VISIBLE
         } else {
             binding.welcomeMessage.visibility = View.GONE
             binding.signinButton.visibility = View.VISIBLE
+            binding.signoutButton.visibility = View.GONE
         }
     }
 }
