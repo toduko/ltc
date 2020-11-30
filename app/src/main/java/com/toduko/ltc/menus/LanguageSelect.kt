@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -113,10 +114,15 @@ class LanguageSelect : Fragment() {
             binding.welcomeMessage.visibility = View.VISIBLE
             binding.signinButton.visibility = View.GONE
             binding.signoutButton.visibility = View.VISIBLE
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .into(binding.profileImage)
+            binding.profileImage.visibility = View.VISIBLE
         } else {
             binding.welcomeMessage.visibility = View.GONE
             binding.signinButton.visibility = View.VISIBLE
             binding.signoutButton.visibility = View.GONE
+            binding.profileImage.visibility = View.GONE
         }
     }
 }
