@@ -21,17 +21,12 @@ class LessonList : Fragment() {
 
         binding.lessonListTitle.text = lang.plus(" ").plus(diff)
 
-        val lessonTitles = mutableListOf<String>()
         db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
             val lessons = documentSnapshot.data?.get(diff) as List<HashMap<String, String>>
 
-            lessons.forEach {
-                lessonTitles.add(it["title"].toString())
-            }
-
             binding.progressBar.visibility = View.GONE
             binding.lessonList.layoutManager = LinearLayoutManager(binding.root.context)
-            binding.lessonList.adapter = LessonAdapter(lessonTitles, lang, diff)
+            binding.lessonList.adapter = LessonAdapter(lessons)
             binding.lessonList.visibility = View.VISIBLE
         }
 

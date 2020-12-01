@@ -10,24 +10,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.toduko.ltc.R
 
 class LessonAdapter(
-    private val lessons: List<String>,
-    private val language: String,
-    private val difficulty: String
+    private val lessons: List<HashMap<String, String>>,
 ) : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
-    class ViewHolder(view: View, language: String, difficulty: String) :
+    class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
         val lessonNumber: TextView = view.findViewById(R.id.lesson_number)
         val lessonTitle: TextView = view.findViewById(R.id.lesson_title)
+        lateinit var lesson: HashMap<String, String>
 
         init {
             view.setOnClickListener {
                 it.findNavController().navigate(
                     R.id.action_lessonList_to_lesson,
                     bundleOf(
-                        "language" to language,
-                        "difficulty" to difficulty,
-                        "lessonNumber" to lessonNumber.text,
-                        "lessonTitle" to lessonTitle.text
+                        "lesson" to lesson
                     )
                 )
             }
@@ -37,12 +33,13 @@ class LessonAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.lesson_card, parent, false)
-        return ViewHolder(view, language, difficulty)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.lessonNumber.text = (position + 1).toString()
-        holder.lessonTitle.text = lessons[position]
+        holder.lessonTitle.text = lessons[position]["title"].toString()
+        holder.lesson = lessons[position]
     }
 
     override fun getItemCount() = lessons.size
