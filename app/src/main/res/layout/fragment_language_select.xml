@@ -56,50 +56,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/language_select_text" />
 
-        <TextView
-            android:id="@+id/welcome_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="18sp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language_select_text"
-            tools:text="Welcome User" />
-
         <Button
             android:id="@+id/signout_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="153dp"
-            android:layout_marginTop="226dp"
-            android:layout_marginEnd="154dp"
-            android:layout_marginBottom="457dp"
+            android:layout_marginTop="16dp"
             android:text="@string/sign_out"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_layout" />
 
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="136dp"
-            android:layout_height="67dp"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="133dp"
-            android:layout_marginEnd="153dp"
-            android:layout_marginBottom="528dp"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/common_google_signin_btn_text_light_focused"
+        <LinearLayout
+            android:id="@+id/profile_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintTop_toBottomOf="@+id/language_select_text">
+
+            <TextView
+                android:id="@+id/welcome_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                tools:text="Welcome User" />
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/common_google_signin_btn_text_light_focused" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -111,18 +111,17 @@ class LanguageSelect : Fragment() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             binding.welcomeMessage.text = "Welcome ".plus(user.displayName)
-            binding.welcomeMessage.visibility = View.VISIBLE
             binding.signinButton.visibility = View.GONE
             binding.signoutButton.visibility = View.VISIBLE
             Glide.with(requireActivity())
                 .load(user.photoUrl)
+                .circleCrop()
                 .into(binding.profileImage)
-            binding.profileImage.visibility = View.VISIBLE
+            binding.profileLayout.visibility = View.VISIBLE
         } else {
-            binding.welcomeMessage.visibility = View.GONE
             binding.signinButton.visibility = View.VISIBLE
             binding.signoutButton.visibility = View.GONE
-            binding.profileImage.visibility = View.GONE
+            binding.profileLayout.visibility = View.GONE
         }
     }
 }
