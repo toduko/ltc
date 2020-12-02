@@ -31,6 +31,12 @@ class DifficultySelect : Fragment() {
                 bundleOf("language" to lang, "difficulty" to "Advanced")
             )
         }
+        binding.playgroundButton.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_difficultySelect_to_codingPlayground,
+                bundleOf("language" to lang)
+            )
+        }
         return binding.root
     }
 }
