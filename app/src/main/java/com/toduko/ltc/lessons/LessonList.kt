@@ -26,7 +26,7 @@ class LessonList : Fragment() {
 
             binding.progressBar.visibility = View.GONE
             binding.lessonList.layoutManager = LinearLayoutManager(binding.root.context)
-            binding.lessonList.adapter = LessonAdapter(lessons)
+            binding.lessonList.adapter = LessonAdapter(lessons, lang)
             binding.lessonList.visibility = View.VISIBLE
         }
 
