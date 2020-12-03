@@ -6,8 +6,9 @@
     android:layout_margin="16dp">
 
     <RelativeLayout
+        android:id="@+id/relative_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="69dp"
         android:padding="16dp">
 
         <TextView
@@ -23,6 +24,14 @@
             android:layout_marginStart="24dp"
             android:layout_toEndOf="@+id/lesson_number"
             tools:text="Hello world" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:enabled="false"
+            android:layout_width="30dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="289dp"
+            android:layout_toEndOf="@+id/lesson_number" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
