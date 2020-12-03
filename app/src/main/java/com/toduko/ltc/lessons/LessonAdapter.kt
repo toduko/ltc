@@ -1,5 +1,6 @@
 package com.toduko.ltc.lessons
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,16 +18,14 @@ import com.toduko.ltc.R
 class LessonAdapter(
     private val lessons: List<HashMap<String, String>>,
     private val language: String,
-    private val lessonDataForDb: HashMap<String, Boolean>
+    private val lessonDataForDb: HashMap<String, HashMap<String, Boolean>>
 ) : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
     class ViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        private var auth: FirebaseAuth = Firebase.auth
         val lessonNumber: TextView = view.findViewById(R.id.lesson_number)
         val lessonTitle: TextView = view.findViewById(R.id.lesson_title)
         val checkBox: CheckBox = view.findViewById(R.id.checkBox)
 
-        val user = auth.currentUser
         lateinit var lesson: HashMap<String, String>
         lateinit var lang: String
 
@@ -55,10 +54,8 @@ class LessonAdapter(
         holder.lesson = lessons[position]
         holder.lang = language
 
-        holder.user?.let {
-            if(lessonDataForDb.get(holder.lesson.get("title")) == true) {
-                holder.checkBox.setChecked(true);
-            }
+        if(lessonDataForDb.get(language)?.get(holder.lesson.get("title")) == true) {
+            holder.checkBox.setChecked(true);
         }
     }
 

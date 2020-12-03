@@ -17,8 +17,6 @@ import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.databinding.FragmentLessonListBinding
 
 class LessonList : Fragment() {
-    private lateinit var auth: FirebaseAuth
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,30 +25,35 @@ class LessonList : Fragment() {
         val lang = arguments?.getString("language").toString()
         val diff = arguments?.getString("difficulty").toString()
         val db = FirebaseFirestore.getInstance()
-        var lessonDataForDb: HashMap<String,  Boolean> = HashMap()
+
         binding.lessonListTitle.text = lang.plus(" ").plus(diff)
-        auth = Firebase.auth
-        val user = auth.currentUser
-        if (user != null) {
-            println()
-            db.collection("users")
-                .document(user.uid)
-                .get().addOnSuccessListener { documentSnapshot1 ->
-                    lessonDataForDb = documentSnapshot1.data?.get(lang) as HashMap<String,  Boolean>
-                }
-        }
+
         db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
             val lessons = documentSnapshot.data?.get(diff) as List<HashMap<String, String>>
+            var lessonDataForDb: HashMap<String, HashMap<String, Boolean>> = HashMap()
+
+            val auth = Firebase.auth
+            val user = auth.currentUser
+
+            if (user != null) {
+                db.collection("users")
+                    .document(user.uid)
+                    .get().addOnSuccessListener { documentSnapshot1 ->
+                        if (documentSnapshot1.data != null)
+                            lessonDataForDb =
+                                documentSnapshot1.data as HashMap<String, HashMap<String,Boolean>>
+                        binding.lessonList.adapter = LessonAdapter(lessons, lang, lessonDataForDb)
+                    }
+            }
 
             binding.progressBar.visibility = View.GONE
             binding.lessonList.layoutManager = LinearLayoutManager(binding.root.context)
-            binding.lessonList.adapter = lessonDataForDb?.let { LessonAdapter(lessons, lang, it) }
+            binding.lessonList.adapter = LessonAdapter(lessons, lang, lessonDataForDb)
             binding.lessonList.visibility = View.VISIBLE
         }
 
         return binding.root
     }
-
 
 
 }

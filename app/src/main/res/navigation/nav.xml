@@ -57,7 +57,8 @@
         tools:layout="@layout/fragment_lesson" >
         <action
             android:id="@+id/action_lesson_to_questionMultipleChoice"
-            app:destination="@id/questionMultipleChoice" />
+            app:destination="@id/questionMultipleChoice"
+            app:popUpTo="@id/lessonList" />
     </fragment>
     <fragment
         android:id="@+id/codingPlayground"
