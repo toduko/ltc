@@ -18,6 +18,7 @@ class Lesson : Fragment() {
     ): View? {
         val binding = FragmentLessonBinding.inflate(inflater, container, false)
         val lesson = arguments?.getSerializable("lesson") as HashMap<String, String>
+        val lang = arguments?.getString("language").toString()
         val markwon = Markwon.create(binding.root.context)
 
         binding.lessonTitle.text = lesson["title"]
@@ -26,7 +27,7 @@ class Lesson : Fragment() {
         binding.startTestButton.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_lesson_to_questionMultipleChoice,
-                bundleOf("lesson" to lesson)
+                bundleOf("lesson" to lesson, "language" to lang)
             )
         }
 
