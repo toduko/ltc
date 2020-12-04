@@ -55,7 +55,6 @@
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_google_logo"
             android:drawablePadding="8dp"
-            android:fontFamily="@font/baloo"
 
             android:padding="8dp"
             android:text="@string/sign_in"
