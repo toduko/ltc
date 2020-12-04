@@ -16,6 +16,7 @@ import com.toduko.ltc.databinding.FragmentQuestionMultipleChoiceBinding
 class QuestionMultipleChoice : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
+
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentQuestionMultipleChoiceBinding.inflate(inflater, container, false)
