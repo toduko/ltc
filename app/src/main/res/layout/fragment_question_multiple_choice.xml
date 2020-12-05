@@ -66,14 +66,16 @@
                 android:id="@+id/check_answer_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/check_answer" />
+                android:text="@string/check_answer"
+                style="@style/button_primary"/>
 
             <Button
                 android:id="@+id/next_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/next"
-                android:visibility="gone" />
+                android:visibility="gone"
+                style="@style/button_primary"/>
 
         </RadioGroup>
 

@@ -33,7 +33,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/javascript_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/button_primary"/>
 
         <Button
             android:id="@+id/javascript_button"
@@ -44,7 +45,8 @@
             app:layout_constraintEnd_toStartOf="@+id/python_button"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/button_primary"/>
 
         <Button
             android:id="@+id/signin_button"
@@ -58,6 +60,7 @@
 
         <Button
             android:id="@+id/signout_button"
+            style="@style/button_secondary.sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
