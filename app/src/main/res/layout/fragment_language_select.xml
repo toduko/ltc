@@ -15,14 +15,17 @@
             android:id="@+id/language_select_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="412dp"
             android:text="@string/select_a_language"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/python_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/python_button"
@@ -31,6 +34,7 @@
             android:text="@string/py"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/javascript_button"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +46,7 @@
             android:layout_height="wrap_content"
             android:text="@string/js"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/python_button"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -54,10 +58,11 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
 
+            android:layout_marginTop="192dp"
             android:backgroundTint="@color/white"
+
             android:drawableLeft="@drawable/ic_google_logo"
             android:drawablePadding="8dp"
-
             android:padding="8dp"
             android:text="@string/sign_in"
             android:textAllCaps="false"
@@ -65,7 +70,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language_select_text" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/signout_button"
@@ -105,6 +110,18 @@
                 android:contentDescription="@string/todo"
                 android:src="@drawable/common_google_signin_btn_text_light_focused" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/signin_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.855"
+            tools:text="Want to track your progress?" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
