@@ -64,7 +64,10 @@
             android:text="@string/check_answer"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/button_primary"
+            />
+
 
         <Button
             android:id="@+id/done_button"
@@ -75,7 +78,10 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/button_primary"
+            />
+
 
         <TextView
             android:id="@+id/status"
