@@ -2,8 +2,8 @@
     <string name="app_name">LTC</string>
     <string name="title_activity_main">LTC</string>
     <string name="hello_world">Hello Square World!</string>
-    <string name="js">js</string>
-    <string name="py">py</string>
+    <string name="js">JS</string>
+    <string name="py">Py</string>
     <string name="beginner">beginner</string>
     <string name="advanced">advanced</string>
     <string name="javascript_difficulty_select">JavaScript Difficulty Select</string>
@@ -26,9 +26,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_your_knowledge">Test Your Knowledge</string>
     <string name="done">Done</string>
-    <string name="sign_in">Sign In With Google</string>
+    <string name="sign_in">Sign in with Google</string>
     <string name="choose_a_correct_answer">Choose A Correct Answer</string>
     <string name="sign_out">Sign Out</string>
     <string name="todo">TODO</string>
     <string name="coding_playground">Coding Playground</string>
+    <string name="want_to_track_your_progress">Want to track your progress?</string>
+    <string name="choose_a_language">Choose a language</string>
+    <string name="learn_to_code">Learn To Code</string>
 </resources>
