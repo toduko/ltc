@@ -3,12 +3,17 @@ package com.toduko.ltc.questions
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.databinding.FragmentQuestionFillTheBlankBinding
 
 class QuestionFillTheBlank : Fragment() {
@@ -16,10 +21,12 @@ class QuestionFillTheBlank : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding = FragmentQuestionFillTheBlankBinding.inflate(inflater, container, false)
 
         val lesson =
             arguments?.getSerializable("lesson") as HashMap<String, HashMap<String, String>>
+        val lang = arguments?.getString("language").toString()
 
         binding.fillTheBlankText.text = lesson["questionFillTheBlank"]?.get("text").toString()
         val missingWord = lesson["questionFillTheBlank"]?.get("missingWord").toString()
@@ -41,7 +48,24 @@ class QuestionFillTheBlank : Fragment() {
         }
 
         binding.doneButton.setOnClickListener {
+            //get db
+            val db = FirebaseFirestore.getInstance()
+            //get user
+            val auth = Firebase.auth
+            val user = auth.currentUser
+            val lessonDataForDb = HashMap<String, HashMap<String, Boolean>>()
+
+            val hashMap:HashMap<String,Boolean> = HashMap()
+            val title = lesson.get("title").toString()
+            hashMap.put(title, true)
+            lessonDataForDb.put(lang, hashMap)
+            if (user != null) {
+                db.collection("users")
+                    .document(user.uid)
+                    .set(lessonDataForDb, SetOptions.merge())
+            }
             it.findNavController().popBackStack()
+
         }
 
         return binding.root

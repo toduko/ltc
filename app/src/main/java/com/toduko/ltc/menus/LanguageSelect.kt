@@ -23,9 +23,9 @@ import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentLanguageSelectBinding
 
 class LanguageSelect : Fragment() {
+    private var RC_SIGN_IN = 9001
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    private var RC_SIGN_IN = 9001
     private lateinit var binding: FragmentLanguageSelectBinding
 
     override fun onCreateView(
@@ -51,6 +51,7 @@ class LanguageSelect : Fragment() {
                 bundleOf("language" to "JavaScript")
             )
         }
+
         binding.pythonButton.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_languageSelect_to_difficultySelect,
@@ -61,16 +62,22 @@ class LanguageSelect : Fragment() {
         binding.signinButton.setOnClickListener {
             signIn()
         }
+
         binding.signoutButton.setOnClickListener {
-            Firebase.auth.signOut()
-            updateUI(user)
+            signOut()
         }
+
         return binding.root
     }
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    private fun signOut() {
+        Firebase.auth.signOut()
+        updateUI(null)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -112,6 +119,7 @@ class LanguageSelect : Fragment() {
         if (user != null) {
             binding.welcomeMessage.text = "Welcome ".plus(user.displayName)
             binding.signinButton.visibility = View.GONE
+            binding.trackProgress.visibility = View.GONE
             binding.signoutButton.visibility = View.VISIBLE
             Glide.with(requireActivity())
                 .load(user.photoUrl)
@@ -119,6 +127,7 @@ class LanguageSelect : Fragment() {
                 .into(binding.profileImage)
             binding.profileLayout.visibility = View.VISIBLE
         } else {
+            binding.trackProgress.visibility = View.VISIBLE
             binding.signinButton.visibility = View.VISIBLE
             binding.signoutButton.visibility = View.GONE
             binding.profileLayout.visibility = View.GONE
