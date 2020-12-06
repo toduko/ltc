@@ -31,4 +31,10 @@
     <string name="sign_out">Sign Out</string>
     <string name="todo">TODO</string>
     <string name="coding_playground">Coding Playground</string>
+    <string name="python">Python</string>
+    <string name="output">Output</string>
+    <string name="hint">hint</string>
+    <string name="textview">TextView</string>
+    <string name="_1">1</string>
+
 </resources>
