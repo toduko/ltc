@@ -10,9 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relative_layout"
-        android:background="@drawable/border"
         android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
         android:padding="16dp">
 
         <TextView
@@ -29,7 +29,7 @@
 
         <View
             android:layout_width="1dp"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:background="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
