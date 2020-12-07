@@ -1,14 +1,11 @@
 package com.toduko.ltc.playground
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.toduko.ltc.databinding.ActivityMainBinding.bind
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
-import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding.bind
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import okhttp3.MediaType
