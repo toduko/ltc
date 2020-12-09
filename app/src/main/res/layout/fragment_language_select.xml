@@ -34,11 +34,10 @@
             android:text="@string/py"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/javascript_button"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/button_primary"/>
+            app:layout_constraintVertical_bias="0.689" />
 
         <Button
             android:id="@+id/javascript_button"
@@ -47,10 +46,10 @@
             android:text="@string/js"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/button_primary"/>
+            app:layout_constraintTop_toBottomOf="@+id/language_select_text"
+            app:layout_constraintVertical_bias="0.464" />
 
         <Button
             android:id="@+id/signin_button"
@@ -74,7 +73,6 @@
 
         <Button
             android:id="@+id/signout_button"
-            style="@style/button_secondary.sign_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
