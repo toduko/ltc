@@ -15,7 +15,6 @@
             android:id="@+id/language_select_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="412dp"
             android:text="@string/select_a_language"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -24,32 +23,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/signin_button"
+            app:layout_constraintVertical_bias="0.877" />
 
         <Button
             android:id="@+id/python_button"
-            android:layout_width="wrap_content"
+            android:layout_width="130"
             android:layout_height="wrap_content"
-            android:text="@string/py"
+            android:text="python"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.689" />
+            app:layout_constraintVertical_bias="0.786" />
 
         <Button
             android:id="@+id/javascript_button"
-            android:layout_width="wrap_content"
+            android:layout_width="130"
             android:layout_height="wrap_content"
-            android:text="@string/js"
+            android:text="javascript"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/language_select_text"
-            app:layout_constraintVertical_bias="0.464" />
+            app:layout_constraintVertical_bias="0.516" />
 
         <Button
             android:id="@+id/signin_button"
@@ -57,9 +55,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
 
-            android:layout_marginTop="192dp"
-            android:backgroundTint="@color/white"
+            android:layout_marginTop="360dp"
 
+            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_google_logo"
             android:drawablePadding="8dp"
             android:padding="8dp"
@@ -68,6 +66,7 @@
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,7 +117,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.855"
+            app:layout_constraintVertical_bias="0.884"
             tools:text="Want to track your progress?" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
