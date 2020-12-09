@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/app_logo"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
             android:layout_marginTop="32dp"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
             android:text="@string/learn_to_code"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,11 +44,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/language_select_text"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/track_progress"
-                android:layout_width="match_parent"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="@string/want_to_track_your_progress"
@@ -66,6 +67,7 @@
                 android:drawableLeft="@drawable/ic_google_logo"
                 android:drawablePadding="8dp"
                 android:padding="8dp"
+                android:layout_gravity="center"
                 android:text="@string/sign_in"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
@@ -80,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/language_select_text"
-            tools:visibility="visible">
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/welcome"
@@ -88,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/welcome"
                 android:textColor="#000000"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -122,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:textColor="#000000"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBaseline_toBaselineOf="@+id/profile_picture"
                     app:layout_constraintBottom_toBottomOf="@+id/profile_picture"
@@ -153,7 +155,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/choose_a_language"
             android:textColor="#000000"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/javascript_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -161,7 +163,7 @@
         <Button
             android:id="@+id/javascript_button"
             style="@style/button_primary"
-            android:layout_width="wrap_content"
+            android:layout_width="165sp"
             android:layout_height="wrap_content"
             android:text="@string/js"
             app:layout_constraintBottom_toTopOf="@+id/python_button"
@@ -172,7 +174,7 @@
         <Button
             android:id="@+id/python_button"
             style="@style/button_primary"
-            android:layout_width="wrap_content"
+            android:layout_width="165sp"
             android:layout_height="wrap_content"
 
             android:layout_marginBottom="32dp"

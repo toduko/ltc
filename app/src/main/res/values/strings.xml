@@ -2,8 +2,8 @@
     <string name="app_name">LTC</string>
     <string name="title_activity_main">LTC</string>
     <string name="hello_world">Hello Square World!</string>
-    <string name="js">JS</string>
-    <string name="py">Py</string>
+    <string name="js">JavaScript</string>
+    <string name="py">Python</string>
     <string name="beginner">beginner</string>
     <string name="advanced">advanced</string>
     <string name="javascript_difficulty_select">JavaScript Difficulty Select</string>
