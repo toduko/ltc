@@ -119,6 +119,7 @@ class LanguageSelect : Fragment() {
         if (user != null) {
             binding.welcomeMessage.text = "Welcome ".plus(user.displayName)
             binding.signinButton.visibility = View.GONE
+            binding.trackProgress.visibility = View.GONE
             binding.signoutButton.visibility = View.VISIBLE
             Glide.with(requireActivity())
                 .load(user.photoUrl)
@@ -126,6 +127,7 @@ class LanguageSelect : Fragment() {
                 .into(binding.profileImage)
             binding.profileLayout.visibility = View.VISIBLE
         } else {
+            binding.trackProgress.visibility = View.VISIBLE
             binding.signinButton.visibility = View.VISIBLE
             binding.signoutButton.visibility = View.GONE
             binding.profileLayout.visibility = View.GONE
