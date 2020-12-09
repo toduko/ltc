@@ -1,6 +1,7 @@
 package com.toduko.ltc.menus
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -117,19 +119,16 @@ class LanguageSelect : Fragment() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            binding.welcomeMessage.text = "Welcome ".plus(user.displayName)
-            binding.signinButton.visibility = View.GONE
-            binding.trackProgress.visibility = View.GONE
-            binding.signoutButton.visibility = View.VISIBLE
+            binding.userName.text = user.displayName
             Glide.with(requireActivity())
                 .load(user.photoUrl)
                 .circleCrop()
-                .into(binding.profileImage)
+                .into(binding.profilePicture)
+
+            binding.signInLayout.visibility = View.GONE
             binding.profileLayout.visibility = View.VISIBLE
         } else {
-            binding.trackProgress.visibility = View.VISIBLE
-            binding.signinButton.visibility = View.VISIBLE
-            binding.signoutButton.visibility = View.GONE
+            binding.signInLayout.visibility = View.VISIBLE
             binding.profileLayout.visibility = View.GONE
         }
     }
