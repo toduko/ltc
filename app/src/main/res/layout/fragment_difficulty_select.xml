@@ -4,60 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".menus.DifficultySelect">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/language_select_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
             android:layout_marginTop="32dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:src="@mipmap/ic_launcher_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Language Difficulty Select" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/advanced_button"
-            android:text="@string/advanced"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/beginner_button"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/button_primary" />
-
-        <Button
-            android:id="@+id/beginner_button"
+        <TextView
+            android:id="@+id/learn_to_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/beginner"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/advanced_button"
+            android:layout_margin="16dp"
+            android:layout_marginTop="12dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:text="@string/learn_to_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_logo"
+            />
+
+        <LinearLayout
+            android:id="@+id/difficulty_layout"
+            android:layout_width="225dp"
+            android:layout_height="152dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/jump_in"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/learn_to_code"
             app:layout_constraintVertical_bias="0.5"
-            style="@style/button_primary"
-            />
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/prefer_diff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="Choose a preferred difficulty"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/beginner_button"
+                style="@style/button_primary"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/beginner" />
+
+            <Button
+                android:id="@+id/advanced_button"
+                style="@style/button_primary"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:text="@string/advanced" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/playground_button"
+            style="@style/button_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/coding_playground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/jump_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jump straight into coding"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/playground_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            style="@style/button_primary"
-            />
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
