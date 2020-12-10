@@ -1,6 +1,5 @@
 package com.toduko.ltc.lessons
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import com.toduko.ltc.R
 class LessonAdapter(
     private val lessons: List<HashMap<String, String>>,
     private val language: String,
+    private val difficulty: String,
     private val lessonDataForDb: HashMap<String, HashMap<String, Boolean>>
 ) : RecyclerView.Adapter<LessonAdapter.ViewHolder>() {
     class ViewHolder(view: View) :
@@ -24,6 +24,7 @@ class LessonAdapter(
 
         lateinit var lesson: HashMap<String, String>
         lateinit var lang: String
+        lateinit var diff: String
 
         init {
             view.setOnClickListener {
@@ -31,7 +32,8 @@ class LessonAdapter(
                     R.id.action_lessonList_to_lesson,
                     bundleOf(
                         "lesson" to lesson,
-                        "language" to lang
+                        "language" to lang,
+                        "difficulty" to diff
                     )
                 )
             }
@@ -49,6 +51,7 @@ class LessonAdapter(
         holder.lessonTitle.text = lessons[position]["title"].toString()
         holder.lesson = lessons[position]
         holder.lang = language
+        holder.diff = difficulty
 
         if(lessonDataForDb.get(language)?.get(holder.lesson.get("title")) == true) {
             holder.imageView.setBackgroundResource(R.drawable.iamge_view_shape_checked)
