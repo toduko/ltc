@@ -22,52 +22,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/language_text" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="48dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/output_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/output_button"
-            android:layout_width="208dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="133dp"
-            android:layout_marginEnd="133dp"
-            android:layout_marginBottom="27dp"
-            android:text="@string/output"
-            app:cornerRadius="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
-            android:layout_width="413dp"
-            android:layout_height="463dp"
-            android:layout_marginTop="130dp"
-            android:layout_marginBottom="21dp"
-            app:layout_constraintBottom_toTopOf="@+id/output_button"
+            android:layout_width="411dp"
+            android:layout_height="374dp"
+            android:layout_marginTop="84dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.066">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input"
                 android:layout_width="match_parent"
-                android:layout_height="374dp"
+                android:layout_height="364dp"
                 android:background="@color/white"
                 android:gravity="start|top"
                 android:singleLine="false"
                 android:textAlignment="viewStart" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="7dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="?android:attr/listDivider" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -82,6 +63,80 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Language" />
+
+        <Button
+            android:id="@+id/output_button"
+            style="@style/button_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/output"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+        <LinearLayout
+            android:id="@+id/output_view"
+            android:layout_width="0dp"
+            android:layout_height="225dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="140dp"
+            android:background="@color/button_color"
+            android:orientation="vertical"
+            android:translationZ="2.2dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <Button
+                android:id="@+id/close_button"
+                style="@style/button_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:text="@string/x"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <TextView
+                android:id="@+id/output_label"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-40dp"
+                android:text="@string/output"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="230dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="150dp"
+                android:background="@drawable/divider" />
+
+            <TextView
+                android:id="@+id/output_field"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-120dp"
+                android:layout_marginRight="15dp"
+                android:freezesText="false"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
