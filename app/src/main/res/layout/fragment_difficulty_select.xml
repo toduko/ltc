@@ -38,25 +38,23 @@
 
         <LinearLayout
             android:id="@+id/difficulty_layout"
-            android:layout_width="225dp"
-            android:layout_height="152dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/jump_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/learn_to_code"
-            app:layout_constraintVertical_bias="0.5"
-            tools:visibility="visible">
+            app:layout_constraintVertical_bias="0.5">
 
             <TextView
                 android:id="@+id/prefer_diff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="Choose a preferred difficulty"
+                android:text="@string/choose_a_preferred_difficulty"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
@@ -64,9 +62,8 @@
             <Button
                 android:id="@+id/beginner_button"
                 style="@style/button_primary"
-                android:layout_width="150dp"
+                android:layout_width="165sp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="@string/beginner" />
@@ -74,9 +71,8 @@
             <Button
                 android:id="@+id/advanced_button"
                 style="@style/button_primary"
-                android:layout_width="150dp"
+                android:layout_width="165sp"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:text="@string/advanced" />
         </LinearLayout>
@@ -97,7 +93,7 @@
             android:id="@+id/jump_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jump straight into coding"
+            android:text="@string/jump_straight_into_coding"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textAlignment="center"
