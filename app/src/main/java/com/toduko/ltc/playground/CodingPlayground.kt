@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+//import com.daimajia.androidanimations.library.Techniques
+//import com.daimajia.androidanimations.library.YoYo
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -16,31 +19,58 @@ import org.json.JSONObject
 import javax.xml.bind.DatatypeConverter
 
 
+var existingOutput:Boolean=false
+var output:String=""
+
 class CodingPlayground : Fragment() {
+    private lateinit var binding:FragmentCodingPlaygroundBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         val binding = FragmentCodingPlaygroundBinding.inflate(inflater, container, false)
-        var id=0
+        binding = FragmentCodingPlaygroundBinding.inflate(inflater, container, false)
+        var id = 0
         val lang = arguments?.getString("language")
-        binding.languageText.text=lang
+        binding.languageText.text = lang
 
-        id = if(lang=="Python") {
+        id = if (lang == "Python") {
             71
         } else {
             63
         }
         binding.outputButton.setOnClickListener {
-            var inputText=binding.input.text.toString()
-            GlobalScope.async { getLanguages(inputText,id)}
+            var inputText = binding.input.text.toString()
+            if(inputText=="")
+            {
+                binding.input.setText("You have not typed any code yet !")
             }
+            else
+            {
+                GlobalScope.async { getLanguages(inputText, id) }
+            }
+        }
+        if (existingOutput) {
+            binding.outputView.setVisibility(View.VISIBLE)
+            binding.outputField.text = output
+            binding.input.setEnabled(false)
+            binding.outputButton.setEnabled(false)
+        }
+        else {
+            binding.outputField.text = "No output"
+        }
 
+        binding.closeButton.setOnClickListener {
+            if (binding.outputView.isVisible)
+            {
+                binding.outputView.setVisibility(View.INVISIBLE)
+                binding.input.setEnabled(true)
+                binding.outputButton.setEnabled(true)
+            }
+        }
         return binding.root
     }
     private suspend fun getLanguages(input:String, id:Int)
     {
-        println(input)
         try
         {
             val token = GlobalScope.async { createSubmission(input,id) }.await()
@@ -54,15 +84,14 @@ class CodingPlayground : Fragment() {
     private fun createSubmission(input:String, id:Int):String?
     {
         val encodedInput = DatatypeConverter.printBase64Binary(input.toByteArray())
-        println(encodedInput)
         val client = OkHttpClient()
         val mediaType = MediaType.parse("application/json")
         val body = RequestBody.create(mediaType,"""{"language_id": "$id","source_code": "$encodedInput","stdin":null,"redirect_stderr_to_stdout":true}""" )
         val request = Request.Builder()
-            .url("https://judge0.p.rapidapi.com/submissions/?base64_encoded=true")
+            .url("https://judge0-ce.p.rapidapi.com/submissions?fields=*&base64_encoded=true")
             .post(body)
             .addHeader("x-rapidapi-key", "2fc4c2b03emshe1830761d55616ap1d1063jsn69a13bb39efe")
-            .addHeader("x-rapidapi-host", "judge0.p.rapidapi.com")
+            .addHeader("x-rapidapi-host", "judge0-ce.p.rapidapi.com")
             .build()
         val response = client.newCall(request).execute()
         val resBody =response.peekBody(2048).string()
@@ -74,16 +103,16 @@ class CodingPlayground : Fragment() {
     {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("https://judge0.p.rapidapi.com/submissions/$token")
+            .url("https://judge0-ce.p.rapidapi.com/submissions/$token")
             .get()
             .addHeader("x-rapidapi-key", "2fc4c2b03emshe1830761d55616ap1d1063jsn69a13bb39efe")
-            .addHeader("x-rapidapi-host", "judge0.p.rapidapi.com")
+            .addHeader("x-rapidapi-host", "judge0-ce.p.rapidapi.com")
             .build()
 
         val response = client.newCall(request).execute()
         val jsonObj=JSONObject(response.peekBody(2048).string())
         val status=JSONObject(jsonObj.getString("status"))
-        if(status.getInt("id")==1)
+        if(status.getInt("id")!=3)
         {
             Thread.sleep(1000)
             getSubmission(token)
@@ -91,7 +120,8 @@ class CodingPlayground : Fragment() {
         else
         {
             println(jsonObj)
+            existingOutput=true
+            output=jsonObj.getString("stdout")
         }
     }
-
 }
