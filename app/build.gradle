@@ -74,8 +74,8 @@ dependencies {
     //Data Type Converter
     implementation 'javax.xml.bind:jaxb-api:2.2.4'
     //Animation
-    //implementation 'com.daimajia.easing:library:2.0@aar'
-    //implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
 
 
