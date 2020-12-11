@@ -83,7 +83,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="140dp"
-            android:background="@color/button_color"
+            android:background="#353535"
             android:orientation="vertical"
             android:translationZ="2.2dp"
             android:visibility="invisible"

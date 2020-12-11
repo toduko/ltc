@@ -107,7 +107,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="@string/check_answer"
-                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/missing_word" />
@@ -120,7 +119,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:text="@string/back"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/done_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -132,7 +130,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/done"
-            android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_button" />

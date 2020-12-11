@@ -23,6 +23,7 @@ class Lesson : Fragment() {
 
         val markwon = Markwon.create(binding.root.context)
 
+        binding.languageName.text = lang
         binding.lessonTitle.text = lesson["title"]
         markwon.setMarkdown(binding.lessonContent, lesson["content"].toString())
 
