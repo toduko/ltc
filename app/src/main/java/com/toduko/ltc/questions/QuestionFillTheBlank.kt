@@ -1,19 +1,19 @@
 package com.toduko.ltc.questions
 
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
+import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentQuestionFillTheBlankBinding
 
 class QuestionFillTheBlank : Fragment() {
@@ -27,9 +27,12 @@ class QuestionFillTheBlank : Fragment() {
         val lesson =
             arguments?.getSerializable("lesson") as HashMap<String, HashMap<String, String>>
         val lang = arguments?.getString("language").toString()
+        val diff = arguments?.getString("difficulty").toString()
 
-        binding.fillTheBlankText.text = lesson["questionFillTheBlank"]?.get("text").toString()
+        binding.question.text = lesson["questionFillTheBlank"]?.get("text").toString()
         val missingWord = lesson["questionFillTheBlank"]?.get("missingWord").toString()
+
+        binding.lessonName.text = lesson["title"].toString()
 
         binding.checkAnswer.setOnClickListener {
             binding.missingWord.isEnabled = false
@@ -38,12 +41,13 @@ class QuestionFillTheBlank : Fragment() {
             binding.doneButton.visibility = View.VISIBLE
             binding.status.visibility = View.VISIBLE
             if (answeredCorrectly) {
-                binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.GREEN)
+                binding.missingWord.background = ContextCompat.getDrawable(binding.root.context, R.drawable.border_green)
+                binding.status.setTextColor(Color.GREEN)
                 binding.status.text = "Correct"
             } else {
-                binding.missingWord.backgroundTintList = ColorStateList.valueOf(Color.RED)
-                binding.status.text =
-                    "Incorrect (Correct answer: ".plus(missingWord).plus(")")
+                binding.missingWord.background = ContextCompat.getDrawable(binding.root.context, R.drawable.border_red)
+                binding.status.setTextColor(Color.RED)
+                binding.status.text = "Incorrect"
             }
         }
 
@@ -55,17 +59,26 @@ class QuestionFillTheBlank : Fragment() {
             val user = auth.currentUser
             val lessonDataForDb = HashMap<String, HashMap<String, Boolean>>()
 
-            val hashMap:HashMap<String,Boolean> = HashMap()
-            val title = lesson.get("title").toString()
-            hashMap.put(title, true)
-            lessonDataForDb.put(lang, hashMap)
+            val hashMap: HashMap<String, Boolean> = HashMap()
+            val title = lesson["title"].toString()
+            hashMap[title] = true
+            lessonDataForDb[lang] = hashMap
+
             if (user != null) {
                 db.collection("users")
                     .document(user.uid)
                     .set(lessonDataForDb, SetOptions.merge())
             }
-            it.findNavController().popBackStack()
 
+            it.findNavController().navigate(
+                R.id.action_questionFillTheBlank_to_lessonList,
+                bundleOf("language" to lang, "difficulty" to diff)
+            )
+
+        }
+
+        binding.backButton.setOnClickListener {
+            it.findNavController().popBackStack()
         }
 
         return binding.root

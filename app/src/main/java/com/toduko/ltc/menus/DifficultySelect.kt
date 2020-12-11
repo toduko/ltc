@@ -1,6 +1,7 @@
 package com.toduko.ltc.menus
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,7 @@ class DifficultySelect : Fragment() {
         // Inflate the layout for this fragment
         val binding = FragmentDifficultySelectBinding.inflate(inflater, container, false)
         val lang = arguments?.getString("language")
-        binding.languageSelectText.text = lang.plus(" Difficulty Select")
+
         binding.beginnerButton.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_difficultySelect_to_lessonList,

@@ -42,14 +42,17 @@
         tools:layout="@layout/fragment_question_multiple_choice" >
         <action
             android:id="@+id/action_questionMultipleChoice_to_questionFillTheBlank"
-            app:destination="@id/questionFillTheBlank"
-            app:popUpTo="@id/lessonList" />
+            app:destination="@id/questionFillTheBlank" />
     </fragment>
     <fragment
         android:id="@+id/questionFillTheBlank"
         android:name="com.toduko.ltc.questions.QuestionFillTheBlank"
         android:label="fragment_question_fill_the_blank"
-        tools:layout="@layout/fragment_question_fill_the_blank" />
+        tools:layout="@layout/fragment_question_fill_the_blank" >
+        <action
+            android:id="@+id/action_questionFillTheBlank_to_lessonList"
+            app:destination="@id/lessonList" />
+    </fragment>
     <fragment
         android:id="@+id/lesson"
         android:name="com.toduko.ltc.lessons.Lesson"
@@ -57,8 +60,7 @@
         tools:layout="@layout/fragment_lesson" >
         <action
             android:id="@+id/action_lesson_to_questionMultipleChoice"
-            app:destination="@id/questionMultipleChoice"
-            app:popUpTo="@id/lessonList" />
+            app:destination="@id/questionMultipleChoice" />
     </fragment>
     <fragment
         android:id="@+id/codingPlayground"

@@ -24,6 +24,7 @@ class QuestionMultipleChoice : Fragment() {
         val lesson =
             arguments?.getSerializable("lesson") as HashMap<String, HashMap<String, String>>
         val lang = arguments?.getString("language").toString()
+        val diff = arguments?.getString("difficulty").toString()
 
         binding.questionTitle.text = lesson["questionMultipleChoice"]?.get("title").toString()
         binding.choice1.text = lesson["questionMultipleChoice"]?.get("answer1").toString()
@@ -68,7 +69,7 @@ class QuestionMultipleChoice : Fragment() {
         binding.nextButton.setOnClickListener {
             it.findNavController().navigate(
                 R.id.action_questionMultipleChoice_to_questionFillTheBlank,
-                bundleOf("lesson" to lesson, "language" to lang)
+                bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
             )
         }
 

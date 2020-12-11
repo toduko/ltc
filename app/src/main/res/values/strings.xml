@@ -13,7 +13,7 @@
     <string name="choice_1">Choice 1</string>
     <string name="choice_2">Choice 2</string>
     <string name="choice_3">Choice 3</string>
-    <string name="check_answer">Check Answer</string>
+    <string name="check_answer">Check</string>
     <string name="question">Question</string>
     <string name="choice_4">Choice 4</string>
     <string name="next">Next</string>
@@ -22,7 +22,6 @@
     <string name="text">Text</string>
     <string name="fill_the_missing_word">Fill The Missing Word</string>
     <string name="google_logo">Google Logo</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_your_knowledge">Test Your Knowledge</string>
     <string name="done">Done</string>
@@ -41,4 +40,8 @@
     <string name="welcome">Welcome</string>
     <string name="output">Output</string>
     <string name="x">X</string>
+    <string name="back">Back</string>
+    <string name="question_2">Question 2</string>
+    <string name="choose_a_preferred_difficulty">Choose a preferred difficulty</string>
+    <string name="jump_straight_into_coding">Jump straight into coding</string>
 </resources>
