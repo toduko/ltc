@@ -47,7 +47,7 @@ class QuestionFillTheBlank : Fragment() {
             } else {
                 binding.missingWord.background = ContextCompat.getDrawable(binding.root.context, R.drawable.border_red)
                 binding.status.setTextColor(Color.RED)
-                binding.status.text = "Incorrect"
+                binding.status.text = "Incorrect".plus(" (Correct answer: ").plus(missingWord).plus(")")
             }
         }
 
