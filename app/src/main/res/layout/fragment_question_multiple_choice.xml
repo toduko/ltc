@@ -11,73 +11,125 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/lessonname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/choose_a_correct_answer"
+            android:textColor="#000000"
             android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lesson Name" />
+
+        <TextView
+            android:id="@+id/question_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/question_1"
+            android:textColor="#000000"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/lessonname" />
 
         <TextView
             android:id="@+id/question_title"
-            android:layout_width="wrap_content"
+            android:layout_width="130sp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="@string/question"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/questions"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/question_1" />
 
         <RadioGroup
             android:id="@+id/questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_title">
 
             <RadioButton
                 android:id="@+id/choice1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/choice_1" />
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border_slim"
+                android:button="@drawable/a"
+                android:buttonTint="#000000"
+                android:padding="4dp"
+                android:text="@string/choice_1"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/choice2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/choice_2" />
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border_slim"
+                android:button="@drawable/b"
+                android:buttonTint="#000000"
+                android:padding="4dp"
+                android:text="@string/choice_2"
+                android:textSize="18sp" />
 
             <RadioButton
                 android:id="@+id/choice3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/choice_3" />
-
-            <Button
-                android:id="@+id/check_answer_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/check_answer"
-                style="@style/button_primary"/>
-
-            <Button
-                android:id="@+id/next_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/next"
-                android:visibility="gone"
-                style="@style/button_primary"/>
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border_slim"
+                android:button="@drawable/c"
+                android:buttonTint="#000000"
+                android:padding="4dp"
+                android:text="@string/choice_3"
+                android:textSize="18sp" />
 
         </RadioGroup>
+
+        <Button
+            android:id="@+id/check_answer_button"
+            style="@style/button_primary"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/check_answer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/next_button"
+            style="@style/button_primary"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/next"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/back"
+            style="@style/button_primary"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

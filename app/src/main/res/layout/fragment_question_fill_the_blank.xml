@@ -57,16 +57,16 @@
 
             <TextView
                 android:id="@+id/question"
-                android:layout_width="wrap_content"
+                android:layout_width="130sp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Here goes the text of the qestion..." />
+                tools:text="Question" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/missing_word"
