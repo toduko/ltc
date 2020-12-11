@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -21,7 +23,8 @@ class LessonList : Fragment() {
         val diff = arguments?.getString("difficulty").toString()
         val db = FirebaseFirestore.getInstance()
 
-        binding.lessonListTitle.text = lang.plus(" ").plus(diff)
+        binding.lessonListLanguage.text = lang
+        binding.lessonListDifficulty.text = diff
 
         db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
             val lessons = documentSnapshot.data?.get(diff) as List<HashMap<String, String>>
@@ -31,6 +34,11 @@ class LessonList : Fragment() {
             val user = auth.currentUser
 
             if (user != null) {
+                Glide.with(requireActivity())
+                    .load(user.photoUrl)
+                    .circleCrop()
+                    .into(binding.profilePicture)
+                binding.profilePicture.visibility = View.VISIBLE
                 db.collection("users")
                     .document(user.uid)
                     .get().addOnSuccessListener { documentSnapshot1 ->
