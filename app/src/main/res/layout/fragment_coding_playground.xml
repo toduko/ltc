@@ -11,132 +11,104 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="250dp"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language_text" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="411dp"
-            android:layout_height="374dp"
-            android:layout_marginTop="84dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input"
-                android:layout_width="match_parent"
-                android:layout_height="364dp"
-                android:background="@color/white"
-                android:gravity="start|top"
-                android:singleLine="false"
-                android:textAlignment="viewStart" />
-
-            <View
-                android:id="@+id/divider3"
-                android:layout_width="match_parent"
-                android:layout_height="7dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:background="?android:attr/listDivider" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <TextView
             android:id="@+id/language_text"
             android:layout_width="174dp"
             android:layout_height="50dp"
+            android:layout_marginTop="32dp"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Language" />
 
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/white"
+            android:gravity="start|top"
+            android:singleLine="false"
+            android:textAlignment="viewStart"
+            app:layout_constraintBottom_toTopOf="@+id/output_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language_text" />
+
         <Button
             android:id="@+id/output_button"
             style="@style/button_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/output"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
-        <LinearLayout
-            android:id="@+id/output_view"
-            android:layout_width="0dp"
-            android:layout_height="225dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="140dp"
-            android:background="#353535"
-            android:orientation="vertical"
-            android:translationZ="2.2dp"
-            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/output_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#353535"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                android:id="@+id/close_button"
-                style="@style/button_primary"
+            <TextView
+                android:id="@+id/output_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginEnd="10dp"
-                android:text="@string/x"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <TextView
-                android:id="@+id/output_label"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="-40dp"
                 android:text="@string/output"
-                android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/closeOutput"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_close_24"
+                tools:src="@tools:sample/avatars" />
 
             <View
-                android:id="@+id/divider4"
-                android:layout_width="230dp"
-                android:layout_height="3dp"
-                android:layout_gravity="center|center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="150dp"
-                android:background="@drawable/divider" />
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="32dp"
+                android:background="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/output_title" />
 
             <TextView
-                android:id="@+id/output_field"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="-120dp"
-                android:layout_marginRight="15dp"
-                android:freezesText="false"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
+                android:id="@+id/output"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp"
+                tools:text="Output goes here" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
