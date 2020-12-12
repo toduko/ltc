@@ -17,11 +17,9 @@
             android:layout_height="50sp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
-            android:src="@drawable/image_view_shape"
-            android:visibility="gone"
+            android:src="@drawable/ic_guest"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/lesson_list_language"

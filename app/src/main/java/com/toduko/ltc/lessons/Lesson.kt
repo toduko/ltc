@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentLessonBinding
 import io.noties.markwon.Markwon
@@ -20,6 +23,14 @@ class Lesson : Fragment() {
         val lesson = arguments?.getSerializable("lesson") as HashMap<String, String>
         val lang = arguments?.getString("language").toString()
         val diff = arguments?.getString("difficulty").toString()
+        val auth = Firebase.auth
+        val user = auth.currentUser
+        if(user != null) {
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .circleCrop()
+                .into(binding.profilePicture)
+        }
 
         val markwon = Markwon.create(binding.root.context)
 
