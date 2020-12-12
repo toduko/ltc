@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
+import com.toduko.ltc.playground.syntax.Language
+import com.toduko.ltc.playground.syntax.SyntaxManager
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import okhttp3.MediaType
@@ -18,25 +20,35 @@ import okhttp3.RequestBody
 import org.json.JSONObject
 import javax.xml.bind.DatatypeConverter
 
+
 class CodingPlayground : Fragment() {
     private lateinit var binding: FragmentCodingPlaygroundBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentCodingPlaygroundBinding.inflate(inflater, container, false)
+
+        var mCurrentLanguage = Language.Python
         var id = 0
         val lang = arguments?.getString("language")
         binding.languageText.text = lang
 
-        id = if (lang == "Python") {
-            71
+        if (lang == "Python") {
+            id =  71
+            mCurrentLanguage = Language.Python
         } else {
-            63
+            id =  63
+            mCurrentLanguage = Language.JavaScript
         }
+        val mCodeView = binding.codeView
+        var cont = binding.view.context
+        SyntaxManager.applyTheme(cont, mCodeView, mCurrentLanguage)
 
         binding.outputButton.setOnClickListener {
-            var inputText = binding.input.text.toString()
+            var inputText = binding.codeView.text.toString()
             binding.outputLayout.visibility = View.VISIBLE
             YoYo.with(Techniques.SlideInUp)
                 .duration(400)

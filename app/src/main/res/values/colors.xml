@@ -9,4 +9,18 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#FF00FF00</color>
     <color name="red">#FFFF0000</color>
+
+
+    <!--Code view Theme Colors-->
+    <color name="darkGrey">#272822</color>
+    <color name="lightGreen">#9ccc6b</color>
+    <color name="lightBlack">#2d2a2e</color>
+    <color name="backgroundWhite">#fcfcfa</color>
+    <color name="pink">#ff6188</color>
+    <color name="skyBlue">#78dce8</color>
+    <color name="monokia_pro_orange">#ffd866</color>
+    <color name="lightPurple">#ab9df2</color>
+    <color name="grey">#727072</color>
+    <color name="gold">#e6b121</color>
+
 </resources>
