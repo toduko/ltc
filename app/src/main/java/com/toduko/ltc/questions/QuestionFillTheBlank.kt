@@ -81,6 +81,13 @@ class QuestionFillTheBlank : Fragment() {
             it.findNavController().popBackStack()
         }
 
+        binding.backButton1.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_questionFillTheBlank_to_lesson,
+                bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
+            )
+        }
+
         return binding.root
     }
 }

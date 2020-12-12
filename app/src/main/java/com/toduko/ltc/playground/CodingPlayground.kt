@@ -5,9 +5,12 @@ import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
 import com.toduko.ltc.playground.syntax.Language
 import com.toduko.ltc.playground.syntax.SyntaxManager
@@ -68,6 +71,13 @@ class CodingPlayground : Fragment() {
                 .duration(400)
                 .playOn(binding.outputLayout)
             binding.outputButton.visibility = View.VISIBLE
+        }
+
+        binding.backButton.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_codingPlayground_to_difficultySelect,
+                bundleOf("language" to lang)
+            )
         }
 
         return binding.root
