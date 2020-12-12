@@ -25,6 +25,17 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Language" />
 
+        <View
+            android:id="@+id/view1"
+            android:layout_width="220dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="17dp"
+            android:background="#D5C6C6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language_text" />
+
         <com.amrdeveloper.codeview.CodeView
             android:id="@+id/codeView"
             android:layout_width="0dp"
@@ -58,15 +69,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/output_layout"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="250dp"
             android:background="#353535"
             android:orientation="vertical"
             android:padding="32dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/output_title"
@@ -103,6 +116,10 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="32dp"
+                android:fadeScrollbars="false"
+                android:maxLines="7"
+                android:scrollbars="vertical"
+                android:singleLine="false"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

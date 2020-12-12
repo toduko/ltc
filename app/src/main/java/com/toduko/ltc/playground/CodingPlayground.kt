@@ -1,12 +1,13 @@
 package com.toduko.ltc.playground
 
-//import com.daimajia.androidanimations.library.Techniques
-//import com.daimajia.androidanimations.library.YoYo
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
 import com.toduko.ltc.playground.syntax.Language
 import com.toduko.ltc.playground.syntax.SyntaxManager
@@ -49,14 +50,24 @@ class CodingPlayground : Fragment() {
         binding.outputButton.setOnClickListener {
             var inputText = binding.codeView.text.toString()
             binding.outputLayout.visibility = View.VISIBLE
+            YoYo.with(Techniques.SlideInUp)
+                .duration(400)
+                .playOn(binding.outputLayout)
+            binding.output.setMovementMethod(ScrollingMovementMethod.getInstance());
             binding.outputButton.visibility = View.GONE
-            binding.output.text = "Loading output... This may take a few seconds"
-            GlobalScope.async { getLanguages(inputText, id) }
+            if (inputText == "") {
+                binding.output.text = "You have not typed any code yet!"
+            } else {
+                binding.output.text = "Loading output... This may take a few seconds"
+                GlobalScope.async { getLanguages(inputText, id) }
+            }
         }
 
         binding.closeOutput.setOnClickListener {
+            YoYo.with(Techniques.SlideOutDown)
+                .duration(400)
+                .playOn(binding.outputLayout)
             binding.outputButton.visibility = View.VISIBLE
-            binding.outputLayout.visibility = View.GONE
         }
 
         return binding.root
@@ -68,7 +79,7 @@ class CodingPlayground : Fragment() {
             getSubmission(token)
         } catch (e: Exception) {
             e.printStackTrace()
-            println("Submission not created !")
+            println("Submission not created!")
         }
     }
 
@@ -88,7 +99,6 @@ class CodingPlayground : Fragment() {
             .build()
         val response = client.newCall(request).execute()
         val resBody = response.peekBody(2048).string()
-        println(resBody)
         val jsonObj = JSONObject(resBody)
         return jsonObj.getString("token")
     }
@@ -105,11 +115,10 @@ class CodingPlayground : Fragment() {
         val response = client.newCall(request).execute()
         val jsonObj = JSONObject(response.peekBody(2048).string())
         val status = JSONObject(jsonObj.getString("status"))
-        if (status.getInt("id") != 3) {
+        if (status.getInt("id") != 3 && status.getInt("id") != 11) {
             Thread.sleep(1000)
             getSubmission(token)
         } else {
-            println(jsonObj)
             binding.output.text = jsonObj.getString("stdout")
         }
     }
