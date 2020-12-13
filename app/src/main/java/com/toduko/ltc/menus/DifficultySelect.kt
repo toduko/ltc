@@ -38,6 +38,11 @@ class DifficultySelect : Fragment() {
                 bundleOf("language" to lang)
             )
         }
+        binding.backButton.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_difficultySelect_to_languageSelect
+            )
+        }
         return binding.root
     }
 }

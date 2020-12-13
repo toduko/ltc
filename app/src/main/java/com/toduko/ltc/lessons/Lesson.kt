@@ -44,7 +44,12 @@ class Lesson : Fragment() {
                 bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
             )
         }
-
+        binding.backButton.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_lesson_to_lessonList,
+                bundleOf("language" to lang,"difficulty" to diff)
+            )
+        }
         return binding.root
     }
 }

@@ -95,6 +95,13 @@ class QuestionMultipleChoice : Fragment() {
             )
         }
 
+        binding.backButton.setOnClickListener {
+            it.findNavController().navigate(
+                R.id.action_questionMultipleChoice_to_lesson,
+                bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
+            )
+        }
+
         return binding.root
     }
 }
