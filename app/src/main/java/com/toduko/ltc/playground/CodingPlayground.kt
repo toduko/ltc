@@ -5,15 +5,9 @@ import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.bumptech.glide.Glide
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
 import com.toduko.ltc.playground.syntax.Language
 import com.toduko.ltc.playground.syntax.SyntaxManager
@@ -37,25 +31,17 @@ class CodingPlayground : Fragment() {
 
         binding = FragmentCodingPlaygroundBinding.inflate(inflater, container, false)
 
-        val auth = Firebase.auth
-        val user = auth.currentUser
-        if(user != null) {
-            Glide.with(requireActivity())
-                .load(user.photoUrl)
-                .circleCrop()
-                .into(binding.profilePicture)
-        }
-
         var mCurrentLanguage = Language.Python
         var id = 0
         val lang = arguments?.getString("language")
+        var noText="You have not typed any code yet!"
         binding.languageText.text = lang
 
         if (lang == "Python") {
-            id =  71
+            id = 71
             mCurrentLanguage = Language.Python
         } else {
-            id =  63
+            id = 63
             mCurrentLanguage = Language.JavaScript
         }
         val mCodeView = binding.codeView
@@ -71,10 +57,14 @@ class CodingPlayground : Fragment() {
             binding.output.setMovementMethod(ScrollingMovementMethod.getInstance());
             binding.outputButton.visibility = View.GONE
             if (inputText == "") {
-                binding.output.text = "You have not typed any code yet!"
+                binding.output.text = noText
+                binding.ltcGif.visibility = View.GONE
             } else {
-                binding.output.text = "Loading output... This may take a few seconds"
-                GlobalScope.async { getLanguages(inputText, id) }
+                if (binding.ltcGif.visibility == View.GONE) {
+                    binding.ltcGif.visibility = View.VISIBLE
+                    binding.output.text=""
+                }
+                GlobalScope.async { getLanguages(inputText, id)}
             }
         }
 
@@ -85,23 +75,15 @@ class CodingPlayground : Fragment() {
             binding.outputButton.visibility = View.VISIBLE
         }
 
-        binding.backButton.setOnClickListener {
-            it.findNavController().navigate(
-                R.id.action_codingPlayground_to_difficultySelect,
-                bundleOf("language" to lang)
-            )
-        }
-
         return binding.root
     }
 
-    private suspend fun getLanguages(input: String, id: Int) {
+    private suspend fun getLanguages(input: String, id: Int)  {
         try {
-            val token = GlobalScope.async { createSubmission(input, id) }.await()
+            val token = GlobalScope.async {createSubmission(input, id) }.await()
             getSubmission(token)
         } catch (e: Exception) {
             e.printStackTrace()
-            println("Submission not created!")
         }
     }
 
@@ -141,7 +123,10 @@ class CodingPlayground : Fragment() {
             Thread.sleep(1000)
             getSubmission(token)
         } else {
-            binding.output.text = jsonObj.getString("stdout")
+            activity?.runOnUiThread(Runnable {
+                binding.ltcGif.visibility = View.GONE
+                binding.output.text=jsonObj.getString("stdout")
+            })
         }
     }
 }
