@@ -73,7 +73,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/language_text"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
@@ -92,7 +92,7 @@
             android:id="@+id/output_layout"
             android:layout_width="0dp"
             android:layout_height="250dp"
-            android:background="#353535"
+            android:background="#252525"
             android:orientation="vertical"
             android:padding="32dp"
             android:visibility="gone"
@@ -134,6 +134,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/output_title" />
 
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/ltcGif"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ltc"
+                tools:layout_editor_absoluteX="116dp"
+                tools:layout_editor_absoluteY="81dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:translationZ="2.2dp" />
+
             <TextView
                 android:id="@+id/output"
                 android:layout_width="0dp"
@@ -144,6 +156,7 @@
                 android:scrollbars="vertical"
                 android:singleLine="false"
                 android:textColor="#FFFFFF"
+                android:background="#252525"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -151,6 +164,7 @@
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp"
                 tools:text="Output goes here" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

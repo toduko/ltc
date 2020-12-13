@@ -39,7 +39,7 @@ class CodingPlayground : Fragment() {
 
         val auth = Firebase.auth
         val user = auth.currentUser
-        if(user != null) {
+        if (user != null) {
             Glide.with(requireActivity())
                 .load(user.photoUrl)
                 .circleCrop()
@@ -52,10 +52,10 @@ class CodingPlayground : Fragment() {
         binding.languageText.text = lang
 
         if (lang == "Python") {
-            id =  71
+            id = 71
             mCurrentLanguage = Language.Python
         } else {
-            id =  63
+            id = 63
             mCurrentLanguage = Language.JavaScript
         }
         val mCodeView = binding.codeView
@@ -72,8 +72,12 @@ class CodingPlayground : Fragment() {
             binding.outputButton.visibility = View.GONE
             if (inputText == "") {
                 binding.output.text = "You have not typed any code yet!"
+                binding.ltcGif.visibility = View.GONE
             } else {
-                binding.output.text = "Loading output... This may take a few seconds"
+                if (binding.ltcGif.visibility == View.GONE) {
+                    binding.ltcGif.visibility = View.VISIBLE
+                    binding.output.text = ""
+                }
                 GlobalScope.async { getLanguages(inputText, id) }
             }
         }
@@ -101,7 +105,6 @@ class CodingPlayground : Fragment() {
             getSubmission(token)
         } catch (e: Exception) {
             e.printStackTrace()
-            println("Submission not created!")
         }
     }
 
@@ -141,7 +144,10 @@ class CodingPlayground : Fragment() {
             Thread.sleep(1000)
             getSubmission(token)
         } else {
-            binding.output.text = jsonObj.getString("stdout")
+            activity?.runOnUiThread(Runnable {
+                binding.ltcGif.visibility = View.GONE
+                binding.output.text = jsonObj.getString("stdout")
+            })
         }
     }
 }
