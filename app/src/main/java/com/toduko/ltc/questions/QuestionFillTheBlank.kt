@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -23,6 +24,15 @@ class QuestionFillTheBlank : Fragment() {
     ): View? {
 
         val binding = FragmentQuestionFillTheBlankBinding.inflate(inflater, container, false)
+
+        val auth = Firebase.auth
+        val user = auth.currentUser
+        if(user != null) {
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .circleCrop()
+                .into(binding.profilePicture)
+        }
 
         val lesson =
             arguments?.getSerializable("lesson") as HashMap<String, HashMap<String, String>>
@@ -54,9 +64,6 @@ class QuestionFillTheBlank : Fragment() {
         binding.doneButton.setOnClickListener {
             //get db
             val db = FirebaseFirestore.getInstance()
-            //get user
-            val auth = Firebase.auth
-            val user = auth.currentUser
             val lessonDataForDb = HashMap<String, HashMap<String, Boolean>>()
 
             val hashMap: HashMap<String, Boolean> = HashMap()
@@ -83,8 +90,8 @@ class QuestionFillTheBlank : Fragment() {
 
         binding.backButton1.setOnClickListener {
             it.findNavController().navigate(
-                R.id.action_questionFillTheBlank_to_lesson,
-                bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
+                R.id.action_questionFillTheBlank_to_lessonList,
+                bundleOf("language" to lang, "difficulty" to diff)
             )
         }
 

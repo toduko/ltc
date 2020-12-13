@@ -26,45 +26,44 @@ class LessonList : Fragment() {
         val diff = arguments?.getString("difficulty").toString()
         val db = FirebaseFirestore.getInstance()
 
-        binding.lessonListLanguage.text = lang
-        binding.lessonListDifficulty.text = diff
+        val auth = Firebase.auth
+        val user = auth.currentUser
 
-        db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
-            val lessons = documentSnapshot.data?.get(diff) as List<HashMap<String, String>>
-            var lessonDataForDb: HashMap<String, HashMap<String, Boolean>> = HashMap()
+        if (user != null)
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .circleCrop()
+                .into(binding.profilePicture)
 
-            val auth = Firebase.auth
-            val user = auth.currentUser
+            binding.lessonListLanguage.text = lang
+            binding.lessonListDifficulty.text = diff
 
-            if (user != null) {
-                Glide.with(requireActivity())
-                    .load(user.photoUrl)
-                    .circleCrop()
-                    .into(binding.profilePicture)
-                binding.profilePicture.visibility = View.VISIBLE
-                db.collection("users")
-                    .document(user.uid)
-                    .get().addOnSuccessListener { documentSnapshot1 ->
-                        if (documentSnapshot1.data != null)
-                            lessonDataForDb =
-                                documentSnapshot1.data as HashMap<String, HashMap<String,Boolean>>
-                        binding.lessonList.adapter = LessonAdapter(lessons, lang, diff, lessonDataForDb)
-                    }
+            db.collection("lessons").document(lang).get().addOnSuccessListener { documentSnapshot ->
+                val lessons = documentSnapshot.data?.get(diff) as List<HashMap<String, String>>
+                var lessonDataForDb: HashMap<String, HashMap<String, Boolean>> = HashMap()
+
+                if (user != null)
+                    db.collection("users")
+                        .document(user.uid)
+                        .get().addOnSuccessListener { documentSnapshot1 ->
+                            if (documentSnapshot1.data != null)
+                                lessonDataForDb =
+                                    documentSnapshot1.data as HashMap<String, HashMap<String, Boolean>>
+                            binding.lessonList.adapter =
+                                LessonAdapter(lessons, lang, diff, lessonDataForDb)
+                        }
+
+                binding.progressBar.visibility = View.GONE
+                binding.lessonList.layoutManager = LinearLayoutManager(binding.root.context)
+                binding.lessonList.adapter = LessonAdapter(lessons, lang, diff, lessonDataForDb)
+                binding.lessonList.visibility = View.VISIBLE
             }
-
-            binding.progressBar.visibility = View.GONE
-            binding.lessonList.layoutManager = LinearLayoutManager(binding.root.context)
-            binding.lessonList.adapter = LessonAdapter(lessons, lang, diff, lessonDataForDb)
-            binding.lessonList.visibility = View.VISIBLE
+            binding.backButton.setOnClickListener {
+                it.findNavController().navigate(
+                    R.id.action_lessonList_to_difficultySelect,
+                    bundleOf("language" to lang)
+                )
+            }
+            return binding.root
         }
-        binding.backButton.setOnClickListener {
-            it.findNavController().navigate(
-                R.id.action_lessonList_to_difficultySelect,
-                bundleOf("language" to lang)
-            )
-        }
-        return binding.root
-    }
-
-
 }

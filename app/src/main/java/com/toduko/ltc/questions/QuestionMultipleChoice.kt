@@ -10,6 +10,9 @@ import android.widget.RadioButton
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentQuestionMultipleChoiceBinding
 
@@ -20,6 +23,15 @@ class QuestionMultipleChoice : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentQuestionMultipleChoiceBinding.inflate(inflater, container, false)
+
+        val auth = Firebase.auth
+        val user = auth.currentUser
+        if(user != null) {
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .circleCrop()
+                .into(binding.profilePicture)
+        }
 
         val lesson =
             arguments?.getSerializable("lesson") as HashMap<String, HashMap<String, String>>
@@ -97,7 +109,7 @@ class QuestionMultipleChoice : Fragment() {
 
         binding.backButton.setOnClickListener {
             it.findNavController().navigate(
-                R.id.action_questionMultipleChoice_to_lesson,
+                R.id.action_questionMultipleChoice_to_lessonList,
                 bundleOf("lesson" to lesson, "language" to lang, "difficulty" to diff)
             )
         }

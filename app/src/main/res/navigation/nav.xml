@@ -50,8 +50,8 @@
             android:id="@+id/action_questionMultipleChoice_to_questionFillTheBlank"
             app:destination="@id/questionFillTheBlank" />
         <action
-            android:id="@+id/action_questionMultipleChoice_to_lesson"
-            app:destination="@id/lesson" />
+            android:id="@+id/action_questionMultipleChoice_to_lessonList"
+            app:destination="@id/lessonList" />
     </fragment>
     <fragment
         android:id="@+id/questionFillTheBlank"
@@ -61,9 +61,6 @@
         <action
             android:id="@+id/action_questionFillTheBlank_to_lessonList"
             app:destination="@id/lessonList" />
-        <action
-            android:id="@+id/action_questionFillTheBlank_to_lesson"
-            app:destination="@id/lesson" />
     </fragment>
     <fragment
         android:id="@+id/lesson"

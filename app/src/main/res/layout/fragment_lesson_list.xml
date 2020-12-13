@@ -43,8 +43,8 @@
             android:textColor="@color/black"
             android:textSize="36dp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/profile_picture"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Language" />
 

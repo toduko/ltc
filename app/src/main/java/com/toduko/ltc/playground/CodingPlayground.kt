@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.toduko.ltc.R
 import com.toduko.ltc.databinding.FragmentCodingPlaygroundBinding
 import com.toduko.ltc.playground.syntax.Language
@@ -33,6 +36,15 @@ class CodingPlayground : Fragment() {
     ): View? {
 
         binding = FragmentCodingPlaygroundBinding.inflate(inflater, container, false)
+
+        val auth = Firebase.auth
+        val user = auth.currentUser
+        if(user != null) {
+            Glide.with(requireActivity())
+                .load(user.photoUrl)
+                .circleCrop()
+                .into(binding.profilePicture)
+        }
 
         var mCurrentLanguage = Language.Python
         var id = 0
