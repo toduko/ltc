@@ -156,7 +156,8 @@
             android:text="@string/done"
             app:layout_constraintBaseline_toBaselineOf="@+id/back_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back_button" />
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            android:enabled="false" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

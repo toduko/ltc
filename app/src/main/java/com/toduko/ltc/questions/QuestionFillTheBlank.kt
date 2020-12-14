@@ -45,6 +45,7 @@ class QuestionFillTheBlank : Fragment() {
         binding.lessonName.text = lesson["title"].toString()
 
         binding.checkAnswer.setOnClickListener {
+            binding.doneButton.isEnabled = true
             binding.missingWord.isEnabled = false
             val answeredCorrectly = binding.missingWord.text.toString() == missingWord
             binding.checkAnswer.visibility = View.GONE
